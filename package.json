@@ -1,0 +1,20 @@
+{
+  "name": "be-restaurant-passport",
+  "version": "1.0.0",
+  "description": "Back end repository for Restuarant Passport",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BW-Restaurant-Passport-4/BE-Restaurant-Passport.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BW-Restaurant-Passport-4/BE-Restaurant-Passport/issues"
+  },
+  "homepage": "https://github.com/BW-Restaurant-Passport-4/BE-Restaurant-Passport#readme"
+}
