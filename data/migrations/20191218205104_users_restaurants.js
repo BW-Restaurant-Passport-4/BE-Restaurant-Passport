@@ -7,7 +7,7 @@ exports.up = function (knex) {
       .unsigned()
       .notNullable()
       .references("id")
-      .inTable("users")
+      .inTable("passportHolder")
       .onDelete("CASCADE")
       .onUpdate("CASCADE")
 
