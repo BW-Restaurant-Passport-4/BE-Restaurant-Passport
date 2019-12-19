@@ -9,5 +9,13 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/:id/passport', (req, res) => {
+  let { id } = req.params;
+  Restaurants.getRestaurantsById(id)
+    .then(results => {
+      res.json(results)
+    })
+})
+
 
 module.exports = router;

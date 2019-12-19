@@ -1,9 +1,14 @@
 const db = require('../data/dbConfig.js');
 
 module.exports = {
-  find
+  find,
+  getRestaurantsById
 }
 
-function find(){
+function find() {
   return db("restaurants")
+}
+
+function getRestaurantsById(id) {
+  return db("restaurants").where({ id })
 }

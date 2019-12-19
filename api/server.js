@@ -16,18 +16,18 @@ const restaurantRouter = require("../restaurants/restaurant-router.js");
 const Users = require('../users/users-model.js');
 const restricted = require('../auth/restricted-middleware.js');
 
-server.use("/api/auth", authRouter);
-server.use("/api/restaurants", restricted, restaurantRouter);
+server.use("/auth", authRouter);
+server.use("/restaurants", restricted, restaurantRouter);
 
 server.get('/', (req, res) => {
   res.json({ api: 'Up and running.' })
 })
 
-server.get('/users', (req, res) => {
-  Users.find()
-    .then(results => {
-      res.json(results)
-    })
-})
+// server.get('/users', (req, res) => {
+//   Users.find()
+//     .then(results => {
+//       res.json(results)
+//     })
+// })
 
 module.exports = server;
