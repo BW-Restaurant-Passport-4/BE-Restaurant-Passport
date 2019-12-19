@@ -13,10 +13,11 @@ server.use(cors());
 
 const authRouter = require("../auth/auth-router.js");
 const restaurantRouter = require("../restaurants/restaurant-router.js");
-const Users = require('../users/users-model.js')
+const Users = require('../users/users-model.js');
+const restricted = require('../auth/restricted-middleware.js');
 
 server.use("/api/auth", authRouter);
-server.use("/api/restaurants", restaurantRouter);
+server.use("/api/restaurants", restricted, restaurantRouter);
 
 server.get('/', (req, res) => {
   res.json({ api: 'Up and running.' })

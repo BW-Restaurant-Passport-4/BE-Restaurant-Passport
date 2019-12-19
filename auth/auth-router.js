@@ -15,9 +15,29 @@ router.post("/register", (req, res) => {
       const token = genToken(saved)
       res.status(201).json({ created_user: saved, token: token })
     })
-    .catch(err => {
+    .catch(error => {
       res.status(500).json(error);
     })
+})
+
+router.post("/login", (req, res) => {
+  let { username, password } = req.body;
+  Users.findBy({ username })
+    .first()
+    .then(user => {
+      if (user && bcrypt.compareSync(password, user.password)) {
+        const token = genToken(user);
+        res.status(200).json({
+          message: `Welcome ${user.username}!`,
+          token: token
+        });
+      } else {
+        res.status(401).json({ message: 'Invalid Credentials' });
+      }
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
 })
 
 function genToken(user) {
