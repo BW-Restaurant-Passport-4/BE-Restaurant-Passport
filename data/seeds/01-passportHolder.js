@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('passportHolder').truncate()
+  return knex('passportHolder').del()
     .then(function () {
       // Inserts seed entries
       return knex('passportHolder').insert([
