@@ -16,7 +16,7 @@ function findById(id) {
 }
 
 function add(info) {
-  return db("restaurants").insert(info)
+  return db("restaurants").insert(info, 'id')
 }
 
 function getRestaurantsById(id) {
