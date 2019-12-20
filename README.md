@@ -53,3 +53,13 @@ Returns:
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjQsInVzZXJuYW1lIjoiRGVtbzUiLCJpYXQiOjE1NzY4MDkwNjEsImV4cCI6MTU3NzQxMzg2MX0.IHyCQgYcq0E1MI7P2SKm0lBskIf2yAoIgb25USf5IAc"
 }
 ```
+
+## User Endpoints
+
+GET /restaurants
+
+### Expected Request Headers
+```
+Content-Type: application/json
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjQsInVzZXJuYW1lIjoiRGVtbzUiLCJpYXQiOjE1NzY4MDkwNjEsImV4cCI6MTU3NzQxMzg2MX0.IHyCQgYcq0E1MI7P2SKm0lBskIf2yAoIgb25USf5IAc"
+```
