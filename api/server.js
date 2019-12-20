@@ -23,11 +23,4 @@ server.get('/', (req, res) => {
   res.json({ api: 'Up and running.' })
 })
 
-// server.get('/users', (req, res) => {
-//   Users.find()
-//     .then(results => {
-//       res.json(results)
-//     })
-// })
-
 module.exports = server;
