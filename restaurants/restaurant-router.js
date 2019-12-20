@@ -26,8 +26,9 @@ router.get('/:id', (req, res) => {
     })
 })
 router.get('/:id/passport', (req, res) => {
-  let { id } = req.params;
-  Restaurants.getRestaurantsById(id)
+  let { passport_id } = req.decodedJwt;
+  console.log(passport_id)
+  Restaurants.getRestaurantsById(passport_id)
     .then(results => {
       res.json(results)
     })
