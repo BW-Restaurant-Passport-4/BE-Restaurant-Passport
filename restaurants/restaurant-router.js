@@ -26,9 +26,10 @@ router.get('/:id', (req, res) => {
     })
 })
 router.get('/:id/passport', (req, res) => {
-  let { passport_id } = req.decodedJwt;
-  console.log(passport_id)
-  Restaurants.getRestaurantsById(passport_id)
+  // let { passport_id } = req.decodedJwt;
+  // console.log(passport_id)
+  let { id } = req.params;
+  Restaurants.getRestaurantsById(id)
     .then(results => {
       res.json(results)
     })
@@ -58,6 +59,10 @@ router.put('/:id', (req, res) => {
     .catch(err => {
       res.json({ message: 'Error updating restaurant.' })
     })
+})
+//DELETE METHODS
+router.delete('/:id', (req, res) => {
+  let { id } = req.params;
 })
 
 module.exports = router;

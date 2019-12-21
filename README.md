@@ -130,4 +130,41 @@ Returns:
 ]
 ```
 
+PUT /restaurants/:id
+### Expected Request Headers
+```
+Content-Type: application/json
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjQsInVzZXJuYW1lIjoiRGVtbzUiLCJpYXQiOjE1NzY4MDkwNjEsImV4cCI6MTU3NzQxMzg2MX0.IHyCQgYcq0E1MI7P2SKm0lBskIf2yAoIgb25USf5IAc"
+```
+Returns: 
+
+```
+[
+    {
+        "id": 1,
+        "restaurant_name": "Chick-fil-A",
+        "restaurant_address": "123 A Street",
+        "restaurant_city": "Salt Lake City",
+        "restaurant_zip": "12345",
+        "restaurant_phone_number": "801-123-4567",
+        "restaurant_website": "chick-fil-a.com",
+        "restaurant_rating": 5,
+        "restaurant_notes": "Great chicken sandwich",
+        "restaurant_stamped": 1
+    }
+]
+```
+
+DELETE /restaurants/:id
+### Expected Request Headers
+```
+Content-Type: application/json
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjQsInVzZXJuYW1lIjoiRGVtbzUiLCJpYXQiOjE1NzY4MDkwNjEsImV4cCI6MTU3NzQxMzg2MX0.IHyCQgYcq0E1MI7P2SKm0lBskIf2yAoIgb25USf5IAc"
+```
+
+Returns:
+```
+[1]
+```
+
 
