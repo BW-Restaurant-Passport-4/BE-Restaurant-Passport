@@ -47,4 +47,17 @@ router.post('/', (req, res) => {
     })
 })
 
+//PUT METHODS
+router.put('/:id', (req, res) => {
+  let { id } = req.params;
+  let body = req.body;
+  Restaurants.update(id, body)
+    .then(results => {
+      res.json(results)
+    })
+    .catch(err => {
+      res.json({ message: 'Error updating restaurant.' })
+    })
+})
+
 module.exports = router;

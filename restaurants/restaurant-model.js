@@ -4,6 +4,8 @@ module.exports = {
   find,
   findById,
   add,
+  update,
+  remove,
   getRestaurantsById
 }
 
@@ -17,6 +19,19 @@ function findById(id) {
 
 function add(info) {
   return db("restaurants").insert(info, 'id')
+}
+
+function update(id, changes) {
+  return db("restaurants")
+    .where({ id })
+    .update(changes, 'id')
+    .then(results => {
+      return findById(id)
+    })
+}
+
+function remove(id) {
+  return db("restaurants").where({ id }).del()
 }
 
 function getRestaurantsById(id) {
