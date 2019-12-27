@@ -66,7 +66,7 @@ router.delete('/:id', (req, res) => {
   Restaurants.remove(id)
     .then(results => {
       console.log(results)
-      if (results.length) {
+      if (results) {
         res.json({ message: 'Successfully deleted restaurant.' })
       } else {
         res.status(401).json({ message: 'ID not found.' })
