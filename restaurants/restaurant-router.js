@@ -63,6 +63,17 @@ router.put('/:id', (req, res) => {
 //DELETE METHODS
 router.delete('/:id', (req, res) => {
   let { id } = req.params;
+  Restaurants.remove(id)
+    .then(results => {
+      if (results.length > 0) {
+        res.json({ message: 'Successfully deleted restaurant.' })
+      } else {
+        res.status(401).json({ message: 'ID not found.' })
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ message: 'Error removing restaurant.' })
+    })
 })
 
 module.exports = router;
