@@ -20,7 +20,7 @@ server.use("/auth", authRouter);
 server.use("/restaurants", restricted, restaurantRouter);
 
 server.get('/', (req, res) => {
-  res.json({ api: 'Up and running.' })
+  res.status(200).json({ api: 'Up and running.' })
 })
 
 module.exports = server;

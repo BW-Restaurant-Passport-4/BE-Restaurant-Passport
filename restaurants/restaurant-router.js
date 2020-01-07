@@ -9,6 +9,14 @@ router.get('/', (req, res) => {
       res.json(results)
     })
 })
+router.get('/passport', (req, res) => {
+  let { userId } = req.decodedJwt;
+  Restaurants.getRestaurantsByUserId(Number(userId))
+    .then(results => {
+      res.json(results)
+    })
+})
+
 router.get('/:id', (req, res) => {
   let { id } = req.params;
   Restaurants.findById(id)
@@ -25,15 +33,6 @@ router.get('/:id', (req, res) => {
       res.status(500).json({ message: 'Error retrieving Id.' })
     })
 })
-router.get('/:id/passport', (req, res) => {
-  // let { passport_id } = req.decodedJwt;
-  // console.log(passport_id)
-  let { id } = req.params;
-  Restaurants.getRestaurantsById(id)
-    .then(results => {
-      res.json(results)
-    })
-})
 
 //POST METHODS
 router.post('/', (req, res) => {
@@ -47,6 +46,30 @@ router.post('/', (req, res) => {
       res.status(500).json(err)
     })
 })
+
+// router.post('/passport', (req, res) => {
+//   let body = req.body;
+//   let token = req.decodedJwt;
+//   console.log(token);
+//   // insert the restaurant
+//   Restaurants.add(body)
+//     .then(results => {
+//       //retrieve the id
+//       Restaurants.findById(results.id)
+//         .then(restaurants => {
+//           //add to the join table
+//           Restaurants.addRestaurantById(restaurants)
+//             .then(restaurant => {
+//               res.json(restaurant)
+//             })
+//         })
+//       res.status(200).json(results)
+//     })
+//     .catch(err => {
+//       console.log(err)
+//       res.status(500).json(err)
+//     })
+// })
 
 //PUT METHODS
 router.put('/:id', (req, res) => {

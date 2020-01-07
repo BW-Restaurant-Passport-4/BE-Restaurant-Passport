@@ -6,7 +6,8 @@ module.exports = {
   add,
   update,
   remove,
-  getRestaurantsById
+  getRestaurantsByUserId,
+  addRestaurantById
 }
 
 function find() {
@@ -18,7 +19,8 @@ function findById(id) {
 }
 
 function add(info) {
-  return db("restaurants").insert(info, 'id')
+  return db("restaurants")
+  .insert(info, 'id')
 }
 
 function update(id, changes) {
@@ -34,10 +36,14 @@ function remove(id) {
   return db("restaurants").where({ id }).del()
 }
 
-function getRestaurantsById(id) {
+function getRestaurantsByUserId(id) {
   return db("users_restaurants")
     .select('r.restaurant_name', 'r.restaurant_address', 'r.restaurant_city', 'r.restaurant_zip', 'r.restaurant_phone_number', 'r.restaurant_website', 'r.restaurant_rating', 'r.restaurant_stamped')
     .from('users_restaurants as ur')
     .join('restaurants as r', 'r.id', 'ur.restaurant_id')
     .where('ur.passportHolder_id', '=', id)
+}
+
+function addRestaurantById(info){
+  return ("users_restaurants").insert(info, 'id')
 }
