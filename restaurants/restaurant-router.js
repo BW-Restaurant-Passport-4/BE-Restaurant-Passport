@@ -6,7 +6,7 @@ const Restaurants = require("./restaurant-model.js");
 router.get('/', (req, res) => {
   Restaurants.find()
     .then(results => {
-      res.json(results)
+      res.status(200).json(results)
     })
 })
 router.get('/passport', (req, res) => {
